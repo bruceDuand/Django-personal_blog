@@ -1,0 +1,57 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}
+<title>index page</title>
+{% endblock %}
+
+{% block style%}
+<style>
+  	.bg-1 { 
+      	background-color: #1abc9c; /* Green */
+      	color: #ffffff;
+	}
+	.bg-2 { 
+	    background-color: #474e5d; /* Dark Blue */
+	    color: #ffffff;
+	}
+	.bg-3 { 
+	    background-color: #ffffff; /* White */
+	    color: #555555;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-1 text-center ">
+	<h2>Bruce Duan</h2>
+	<img src="{% static 'app/img/bgimg.jpg' %}" height="150px" class="img-circle" alt="background">
+</div>
+
+
+<div class="container-fluid bg-2 text-center">
+  <h3>Where Am I?</h3>
+  <p>Right now, I'm studying in BUPT(Beijing University of Posts and Telecommunications), whose students have a great confidence in the fields of telecommunications and networks, to some extent, the fields of computer science could also be included.</p>
+  <img src="{% static 'app/img/bupt.jpg' %}" height="150px" alt="Image">
+  <p>As the highest academic institution in the field of information and communications in China, the university has always maintained outstanding academic strength and obvious professional advantages. The advantages of professional quality in communication engineering, information engineering, electronic science and technology, computer science and technology, etc. have been maintained in previous years with very high level.</p>
+</div>
+
+<div class="container-fluid bg-1 text-center">
+  <h3>A very brief description</h3>
+  <div class="row">
+  	<div class="col-sm-4">
+  		<p>My major in the university is telecommunications, actually the difference between communication engineering and telecommunication engineering is not very clear to me. But right now I'm studying Principals of Communications(modulation and demodulation), information theory(endocing and decoding), Mobile Communications(the GSM, WCDMA, TD-LTE systems), and the Optical Communication System.</p>
+  		<img src="{% static 'app/img/massive-mimo.png' %}" class="img-responsive" alt="Image">
+  	</div>
+  	<div class="col-sm-4">
+  		<p>Apart from the things pertaining communication systems, I'm quite fond of the subjects in computer science, especially the field of machine learning, whose development is boosted in this century. I'm using python and its sklearn and tensorflow modules to study the concepts of machine learning and to solve some of the problems that I meet in real lives. The projects that have been finished with some ml techs will be mentioned in the blog.</p>
+  		<img src="{% static 'app/img/program.jpg' %}" class="img-responsive" alt="Image">
+  	</div>
+  	<div class="col-sm-4">
+  		<p>I also like travelling very much, especially travelling with some exciting ways like riding, or going to some unfogetable beautiful places like the Switzerland. The only problem is time, since seldom do I got a long period time to go out with others. One of the most exciting experiences in my university life is a journey from Beijing to Tianjin, along with several of my friends, we ride bicycles and pass the distance of above 100km. The picture below is from one of my favorite places in China.</p>
+  		<img src="{% static 'app/img/travelling.jpg' %}" class="img-responsive" alt="Image">
+  	</div>
+  </div>
+</div>
+
+{% endblock %}

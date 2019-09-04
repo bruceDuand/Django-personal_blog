@@ -1,0 +1,21 @@
+a{% extends "app/base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+	<form class="form-signin" method="POST" action="{% url 'comment' %}">
+		{% csrf_token %}
+		<h2 class="form-signin-heading">What do you want to say?</h2>
+		<div class="form-group">
+			<label for="inputname" class="sr-only">Name:</label>
+			<!--input type="text" id="inputname" class="form-control" placeholder="Name" required autofocus-->
+			{{ form.name }}
+		</div>
+		<div class="form-group">
+			<label for="comment" class="sr-only">Comment:</label>
+			<!--textarea class="form-control" id="comment" rows="5" placeholder="Comment" required autofocus></textarea-->
+			{{ form.comment }}
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Comment</button>
+	</form>
+</div>
+{% endblock content %}

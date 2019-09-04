@@ -1,0 +1,21 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="container theme-showcase" role="main">
+	<div class="jumbotron">
+		<h1>Comment Page</h1>
+		<a type="button" class="btn btn-lg btn-link" href="{% url 'comment' %}">go to the comment page</a>
+	</div>
+
+	{% for c in comments %}
+	<div class="page-header">
+		<h1>{{ c.name }}</h1>
+	</div>
+
+	<div class="well">
+		<p>{{ c.comment }}</p>
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock content %}

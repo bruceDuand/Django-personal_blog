@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+
+{% block content %} 
+<div class="col-sm-6 col-sm-offset-3">
+<div class="container-fluid">
+	<h2>Your movie review:</h2>
+	<div>
+		{{ review }}
+	</div>
+	<h2>Prediction:</h2>
+	<div>
+		This movie review is <strong>{{ prediction }}</strong>
+       (probability: {{ probability }}%).
+	</div>
+<!-- 	<div>
+		<form action="/thanks" method="post">
+	  		<input type='submit' value='Correct' name='feedback_button'>
+	    	<input type='submit' value='Incorrect' name='feedback_button'>
+	    	<input type='hidden' value='{{ prediction }}' name='prediction'>
+	    	<input type='hidden' value='{{ content }}' name='review'>
+	  	</form>
+	</div> -->
+	<div class="col-sm-6 col-sm-offset-3">
+		<h2><a href="{% url 'review' %}">返回</a></h2>
+	</div>
+</div>
+</div>
+
+{% endblock content %}

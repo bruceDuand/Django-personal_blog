@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- the above three must be in the first several rows -->
+	<meta name="author", content="">
+	<meta name="description", content="">
+
+	{% block style %}
+	{% endblock %}
+
+	<title>{% block title %}Bruce's blog{% endblock %}</title>
+	
+
+	<link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap-theme.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'app/css/code.css' %}">
+
+	<!-- <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css"> -->
+	<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/default.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'app/css/friendly.css' %}"> -->
+	<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+
+	<script src="{% static 'app/js/jquery-3.1.1.min.js' %}"></script>
+	<script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+
+	<!--script src="{% static 'app/js/bootstrap.min.js' %}"></script-->
+
+	{% block head_extra %}{% endblock head_extra %}
+</head>
+<body>
+	<nav class="container-fluid navbar-inverse" role="navigation">
+		<div class="container-fluid"> 
+	    <div class="navbar-header">
+	        <button type="button" class="navbar-toggle" data-toggle="collapse"
+	                data-target="#example-navbar-collapse">
+	            <span class="sr-only">切换导航</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="{% url 'base' %}">段文博‘s blog</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+	        <ul class="nav navbar-nav">
+	            <li><a href="{% url 'comment_index' %}">留言</a></li>
+	            <li><a href="{% url 'article_list' %}">博客</a></li>
+	            <li><a href="{% url 'review' %}">测试</a></li>
+	            <li class="dropdown">
+	                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                    个人
+	                    <b class="caret"></b>
+	                </a>
+	                <ul class="dropdown-menu">
+	                    <li><a href="http://www.baidu.com">到百度去</a></li>
+	                    <li><a href="{% url 'project_signin' %}">个人项目</a></li>
+	                    <li><a href="#">待补充</a></li>
+	                    <li class="divider"></li>
+	                    <li><a href="#">旅行游记</a></li>
+	                    <li class="divider"></li>
+	                    <li><a href="#">另一个链接</a></li>
+	                </ul>
+            	</li>
+            	<li><a href="{% url 'upload_image' %}">上传图片</a></li>
+	        </ul>
+	    </div>
+	    </div>
+	</nav>
+
+	{% include 'app/message_display.html' %}
+
+	{% block content %}
+	<div>
+		<h1 class="text-center">暂时就当主页面吧</h1>
+	</div>
+
+	{% endblock content %}
+
+	<!--footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="text-center">Copyright &copy; 段文博的博客 2018</p>
+            </div>
+        
+            <div class="col-lg-12">
+                <p class="text-center"><a href="#">Github</a></p>
+            </div>
+        </div>
+    </footer-->
+
+    <!--script src="{% static 'app/js/jquery-3.1.1.min.js' %}"></script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.4.0/marked.min.js"></script>
+
+    <script type="text/javascript">
+    	 $(document).ready(function() {
+			marked.setOptions({
+					sanitize: true,
+			        highlight: function (code) {
+			        return hljs.highlightAuto(code).value;
+			      },
+			    });
+
+    	 	$(".content-markdown").each(function(){
+    	 		var content = $(this).text()
+    	 		console.log(content)
+    	 		var markedContent = marked(content, ['codehilite'])
+    	 		console.log(markedContent)
+    	 		$(this).html(markedContent)
+    	 	})
+
+    	 	$(".content-markdown img").each(function(){
+    	 		$(this).addClass('img-responsive')
+    	 	})
+    	 })
+    </script>
+
+</body>
+</html>

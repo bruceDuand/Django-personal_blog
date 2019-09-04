@@ -1,0 +1,43 @@
+{% extends 'app/base.html' %}
+
+{% block title %}{{ article.title }} | {{ block.super }}{% endblock %}
+
+{% block style %}
+<style type="text/css">
+    .para {
+        font-size: 20px;
+        padding: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+   <!--  <div class="container-fluid"> -->
+    <div class="col-sm-6 col-sm-offset-3">
+        {% if article.image %}
+        <img src="{{ article.image.url }}" class="img-responsive" />
+        {% endif %}
+        <h1 >{{ article.title }}<small> {{ article.published_time }}</small></h1>
+        <p class="content-markdown">{{ article.content | safe }}</p>
+<!--         {% if article.img1 %}
+        <div class="col-sm-4 col-sm-offset-4">
+            <img src="{{ article.img1.url }}" class="img-responsive" alt="Image">
+        </div>
+        {% endif %}
+        <p class="para content-markdown">{{ article.part2 | safe }}</p>
+        {% if article.img2 %}
+        <div class="col-sm-4 col-sm-offset-4">
+            <img src="{{ article.img2.url }}" class="img-responsive" alt="Image">
+        </div>
+        {% endif %}
+        <p class="para content-markdown">{{ article.part3 | safe }}</p>
+        {% if article.img3 %}
+        <div class="col-sm-4 col-sm-offset-4">
+            <img src="{{ article.img3.url }}" class="img-responsive" alt="Image">
+        </div>
+        {% endif %} -->
+        <!--p style="font-size: 20px;">{{ article.part4 | linebreaksbr }}</p-->
+        <!--p style="font-size: 20px;">{{ article.part5 | linebreaksbr }}</p-->
+    </div>
+{% endblock %}
